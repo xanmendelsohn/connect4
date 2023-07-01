@@ -10,15 +10,15 @@ Where **s** denotes the current state of the game, **a** denotes the current act
 
 1. Create units of "experience" **(s,a,s',reward)** through play
 
-<center><img src="data/c4_memory_unit.PNG" width=500 height=500 /></center>
+<center><img src="data/c4_memory_unit.PNG" width=680 height=450 /></center>
 
 2. Update Q-Values for the state via Bellman's equation
 
-<center><img src="data/c4_bellman.PNG" width=500 height=500 /></center>
+<center><img src="data/c4_bellman.PNG" width=680 height=190 /></center>
 
 3. Train Deep-Q Network (the image depicts the network architecture and the early stopping criteria used)
 
-<center><img src="data/c4_train.PNG" width=500 height=500 /></center>
+<center><img src="data/c4_train.PNG" width=520 height=660 /></center>
 
 ... and repeat.
 
@@ -26,7 +26,7 @@ Where **s** denotes the current state of the game, **a** denotes the current act
 
 I had the idea to capture the opponents point of view as experience of my own (i.e. the agent). This should be possible in games with full information. I think it greatly accelerates learning. Without this method it can take a long time for the agent to experience wins against stronger agents.
 
-<center><img src="data/c4_memory_translate.PNG" width=500 height=500 /></center>
+<center><img src="data/c4_memory_translate.PNG" width=630 height=245 /></center>
 
 ### Training Protocol (loosely)
 
@@ -37,7 +37,7 @@ I had the idea to capture the opponents point of view as experience of my own (i
 - Epsilon greedy policy applied to each move (epsilon = 10%)
 - Avg. Reward over 32 games plotted
 
-<center><img src="data/c4_negamax_train.png" width=500 height=500 /></center>
+<center><img src="data/c4_negamax_train.png" width=600 height=400 /></center>
 
 - Note that the agent dominates Negamax after this training. The epsilon greedy policy drags the average reward down substantially.
 
@@ -45,7 +45,7 @@ I had the idea to capture the opponents point of view as experience of my own (i
 - Agent then learned to play a rule-based agent which dominates Negamax
 - After the agent learned to consistently defeat the rule-based agent, the agent no longer performed very well against Negamax. Perhaps the training sample is too narrow/specialised.
 
-<center><img src="data/c4_rba_train.png" width=500 height=500 /></center>
+<center><img src="data/c4_rba_train.png" width=600 height=400 /></center>
 
 #### Later training against ensemble opponent
 For each game, the opponent ist selected at random. A batch then consists of games against multiple opponents. This I believe is a good approach if you're not applying **experience replay**.
